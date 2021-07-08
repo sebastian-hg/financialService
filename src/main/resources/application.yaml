@@ -1,0 +1,20 @@
+spring:
+  debug: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crypto
+    username: crypto
+    password: admin
+#    data: classpath*:sql/data.sql
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+client:
+  cryptoUrl : https://be.buenbit.com/api/market/tickers/
+

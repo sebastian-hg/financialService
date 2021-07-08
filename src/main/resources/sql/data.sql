@@ -1,0 +1,25 @@
+--DROP SEQUENCE IF EXISTS hibernate_sequence;
+--CREATE SEQUENCE hibernate_sequence
+--  INCREMENT BY 1
+--  MINVALUE 1
+--  CACHE 1
+--  NO CYCLE;
+
+--CREATE TABLE crypto(
+--    id INTEGER PRIMARY KEY,
+--    name VARCHAR(40) NOT NULL
+--    );
+--CREATE TABLE crypto_history_price (
+--    id INTEGER PRIMARY KEY,
+--    crypto_id INTEGER NOT NULL,
+--    price FLOAT ,
+--    createdAt TIMESTAMP
+--    );
+--
+--    ALTER TABLE crypto_history_price
+--    ADD CONSTRAINT crypto_history_price_crypto FOREIGN KEY (crypto_id)
+--    REFERENCES crypto (id)
+--    ON UPDATE NO ACTION
+--    ON DELETE NO ACTION;
+--
+INSERT INTO crypto (id, name )VALUES(1, 'BTC');
