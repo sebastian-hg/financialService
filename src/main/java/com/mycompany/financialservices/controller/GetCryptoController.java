@@ -16,7 +16,7 @@ public class GetCryptoController {
     private final CryptoService service;
 
     @GetMapping()
-    public Mono<Crypto> viewAll ()  {
+    public Mono<Crypto> viewBtc()  {
         return service.execute();
     }
 

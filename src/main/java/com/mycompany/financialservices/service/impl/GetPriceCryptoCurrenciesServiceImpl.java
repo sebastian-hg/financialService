@@ -3,7 +3,7 @@ package com.mycompany.financialservices.service.impl;
 import com.mycompany.financialservices.client.CryptoClient;
 import com.mycompany.financialservices.model.CryptoHistoryPrice;
 import com.mycompany.financialservices.repository.CryptoRepository;
-import com.mycompany.financialservices.service.CryptoHistoryPriceService;
+import com.mycompany.financialservices.service.GetPriceCryptoCurreciesService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Service
 @Log4j2
-public class CryptoHistoryPriceServiceImpl implements CryptoHistoryPriceService {
+public class GetPriceCryptoCurrenciesServiceImpl implements GetPriceCryptoCurreciesService {
     private final CryptoClient client;
     private final CryptoRepository cryptoRepository;
 

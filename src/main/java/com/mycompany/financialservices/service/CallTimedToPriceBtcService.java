@@ -1,6 +1,6 @@
 package com.mycompany.financialservices.service;
 
 @FunctionalInterface
-public interface CallTimedToPriceCryptoService {
+public interface CallTimedToPriceBtcService {
     void execute() throws Exception;
 }

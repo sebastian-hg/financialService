@@ -35,12 +35,11 @@ public class CalculateAverageOfCryptoCurrenciesServiceImpl implements CalculateA
     }
 
     @Override
-    public Mono<ViewAverageBitcoinResponse> executeQuery(LocalDateTime init, LocalDateTime end, Long cryptoId) {
-        return null;
+    public Mono<ViewAverageBitcoinResponse> executeQuery(Long cryptoId, LocalDateTime init, LocalDateTime end) {
+        var averageQuery = priceRepository.findAverage(cryptoId, init, end);
+        return Mono.just(ViewAverageBitcoinResponse.builder()
+                .averagePrice(averageQuery)
+                .build());
     }
+
 }
- /* listResult.forEach(x -> {
-            price = x.getPrice();
-            priceFinal += price;
-            total = priceFinal / listResult.size();
-        });*/

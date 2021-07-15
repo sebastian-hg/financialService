@@ -1,7 +1,7 @@
 package com.mycompany.financialservices.controller;
 
 import com.mycompany.financialservices.model.CryptoHistoryPrice;
-import com.mycompany.financialservices.service.impl.CryptoHistoryPriceServiceImpl;
+import com.mycompany.financialservices.service.impl.GetPriceCryptoCurrenciesServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/financial/Crypto/price/")
 public class GetPriceController {
-    private final CryptoHistoryPriceServiceImpl priceService;
+    private final GetPriceCryptoCurrenciesServiceImpl priceService;
 
     @GetMapping("/bitcoin/")
     public Mono<CryptoHistoryPrice> viewPrice() throws Exception {return priceService.getBtcPrice();}
