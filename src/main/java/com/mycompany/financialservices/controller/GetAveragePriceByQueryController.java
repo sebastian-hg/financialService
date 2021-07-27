@@ -14,15 +14,17 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/financial/GetAveragePrice")
-public class GetAveragePriceByDateController {
+public class GetAveragePriceByQueryController {
     private final GetCryptoAverageByDateServiceImpl calculateAverageOfCryptoCurrenciesService;
-
-    @GetMapping
-    public Mono<ViewAverageBitcoinResponse> viewAverageBitcoin(@RequestParam("id") Long id, @RequestParam
-            ("init") String init, @RequestParam("end") String end) {
-        var starDay = LocalDateTime.parse(init);
+    
+    @GetMapping("/query")
+    public Mono<ViewAverageBitcoinResponse> viewAverageBitcoinByQuery
+            (@RequestParam("id") Long id, @RequestParam("star") String star,
+             @RequestParam("end") String end) {
+        var starDay = LocalDateTime.parse(star);
         var endDay = LocalDateTime.parse(end);
-        return calculateAverageOfCryptoCurrenciesService.execute(starDay, endDay, id);
+        return calculateAverageOfCryptoCurrenciesService.executeQuery(id, starDay, endDay);
     }
+
 
 }

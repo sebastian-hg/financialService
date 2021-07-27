@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "c4520f89-1dc5-47cc-ae02-027e42db275b",
+		"name": "crypto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "view crypto btc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/bitcoin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view price btc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/bitcoin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view price btc by date",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/bitcoin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view price btc by date query",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/GetAveragePrice?id=1&init=2021-07-01T01:00:00&end=2021-07-04T19:15:55",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"GetAveragePrice"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "init",
+							"value": "2021-07-01T01:00:00"
+						},
+						{
+							"key": "end",
+							"value": "2021-07-04T19:15:55"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view price eth",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/Crypto/price/ethereum/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"Crypto",
+						"price",
+						"ethereum",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view price dai",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8080/financial/bitcoin",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"financial",
+						"bitcoin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view buen bit api",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "localhost:8085/marvel/powers",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"marvel",
+						"powers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

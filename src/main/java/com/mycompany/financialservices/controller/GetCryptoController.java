@@ -1,7 +1,7 @@
 package com.mycompany.financialservices.controller;
 
 import com.mycompany.financialservices.model.Crypto;
-import com.mycompany.financialservices.service.CryptoService;
+import com.mycompany.financialservices.service.GetCryptoTypeService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/financial/bitcoin/")
 public class GetCryptoController {
 
-    private final CryptoService service;
+    private final GetCryptoTypeService service;
 
     @GetMapping()
     public Mono<Crypto> viewBtc()  {

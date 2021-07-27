@@ -3,7 +3,7 @@ package com.mycompany.financialservices.service.impl;
 import com.mycompany.financialservices.model.CryptoHistoryPrice;
 import com.mycompany.financialservices.model.response.ViewAverageBitcoinResponse;
 import com.mycompany.financialservices.repository.CryptoHistoryPriceRepository;
-import com.mycompany.financialservices.service.CalculateAverageOfCryptoCurrenciesService;
+import com.mycompany.financialservices.service.GetCryptoAverageByDateService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Service
 @Log4j2
-public class CalculateAverageOfCryptoCurrenciesServiceImpl implements CalculateAverageOfCryptoCurrenciesService {
+public class GetCryptoAverageByDateServiceImpl implements GetCryptoAverageByDateService {
     private final CryptoHistoryPriceRepository priceRepository;
 
 

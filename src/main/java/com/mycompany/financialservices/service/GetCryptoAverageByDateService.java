@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 
-public interface CalculateAverageOfCryptoCurrenciesService {
+public interface GetCryptoAverageByDateService {
     Mono<ViewAverageBitcoinResponse> execute(LocalDateTime init, LocalDateTime end, Long cryptoId);
 
     Mono<ViewAverageBitcoinResponse> executeQuery( Long cryptoId,LocalDateTime init, LocalDateTime end);
