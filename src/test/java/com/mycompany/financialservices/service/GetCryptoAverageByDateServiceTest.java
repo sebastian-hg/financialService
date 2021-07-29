@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class)
-class CalculateAverageOfCryptoCurrenciesTest {
+class GetCryptoAverageByDateServiceTest {
     @Mock
     private CryptoHistoryPriceRepository repository;
     @InjectMocks
@@ -104,7 +104,7 @@ class CalculateAverageOfCryptoCurrenciesTest {
 
     private void givenRepositoryExecuteQuery() {
         Double doubleResult = 500.00;
-        Mockito.when(repository.findAverage(idRequest, initRequest, endRequest)).thenReturn(doubleResult);
+        Mockito.when(repository.findAverageBetween(idRequest, initRequest, endRequest)).thenReturn(doubleResult);
     }
 
     private void givenResponseExecuteQuery() {
@@ -118,10 +118,11 @@ class CalculateAverageOfCryptoCurrenciesTest {
     }
 
     private void thenExecuteQueryIsAOk() {
+
         StepVerifier.create(response)
                 .expectNextMatches(averageBitcoinResponse -> averageBitcoinResponse.equals(expectedResponse))
                 .expectComplete()
                 .verify();
-        Mockito.verify(repository).findAverage(idRequest, initRequest, endRequest);
+        Mockito.verify(repository).findAverageBetween(idRequest, initRequest, endRequest);
     }
 }

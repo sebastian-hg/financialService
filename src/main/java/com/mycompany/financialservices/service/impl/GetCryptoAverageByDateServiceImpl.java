@@ -36,7 +36,7 @@ public class GetCryptoAverageByDateServiceImpl implements GetCryptoAverageByDate
 
     @Override
     public Mono<ViewAverageBitcoinResponse> executeQuery(Long cryptoId, LocalDateTime init, LocalDateTime end) {
-        var averageQuery = priceRepository.findAverage(cryptoId, init, end);
+        var averageQuery = priceRepository.findAverageBetween(cryptoId, init, end);
         return Mono.just(ViewAverageBitcoinResponse.builder()
                 .averagePrice(averageQuery)
                 .build());

@@ -3,7 +3,6 @@ package com.mycompany.financialservices.service;
 import com.mycompany.financialservices.model.Crypto;
 import com.mycompany.financialservices.model.CryptoHistoryPrice;
 import com.mycompany.financialservices.repository.CryptoHistoryPriceRepository;
-import com.mycompany.financialservices.service.impl.GetBitcoinPriceAndSaveToDataBaseServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,23 +15,22 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDateTime;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 
 @ExtendWith(SpringExtension.class)
-class CallTimedToPriceBtcServiceTest {
+class GetBitcoinPriceAndSaveToDataBaseServiceTest {
 
+    private CryptoHistoryPrice cryptoHistoryPrice;
     @Mock
-    private GetCryptoPriceService priceService;
-    private CryptoHistoryPriceRepository priceRepository;
+    private CryptoHistoryPriceRepository cryptoHistoryPriceRepository;
+    @Mock
+    private GetCryptoPriceService getCryptoPriceService;
     @InjectMocks
     private GetBitcoinPriceAndSaveToDataBaseServiceImpl service;
-    private Crypto crypto;
+
 
     @BeforeEach
     void setup() {
-        crypto = Crypto.builder()
-                .name("btc")
-                .id(1L)
-                .build();
     }
 
     @Test
@@ -46,33 +44,31 @@ class CallTimedToPriceBtcServiceTest {
     }
 
     private void givenAService() throws Exception {
-        Mockito.when(priceService.getBtcPrice()).thenReturn(Mono.just(CryptoHistoryPrice.builder()
+        Crypto crypto = Crypto.builder()
+                .name("btc")
+                .id(1L)
+                .build();
+        cryptoHistoryPrice = CryptoHistoryPrice.builder()
                 .createdAt(LocalDateTime.now())
                 .price(150.00)
                 .id(1L)
                 .crypto(crypto)
-                .build()));
+                .build();
+        Mockito.when(getCryptoPriceService.execute(anyString())).thenReturn(Mono.just(cryptoHistoryPrice));
     }
 
     private void givenARepository() {
-        var cryptoHistoryPrice = CryptoHistoryPrice.builder()
-                .price(150.00)
-                .id(1L)
-                .createdAt(LocalDateTime.now())
-                .crypto(crypto)
-                .build();
-        Mockito.when(priceRepository.save(any())).thenReturn(cryptoHistoryPrice);
+        Mockito.when(cryptoHistoryPriceRepository.save(any(CryptoHistoryPrice.class))).thenReturn(cryptoHistoryPrice);
 
     }
 
     private void whenExecute() throws Exception {
         service.execute();
-
     }
 
     private void thenExecuteIsAOk() throws Exception {
-        Mockito.verify(priceService).getBtcPrice();
-        Mockito.verify(priceRepository).save(any());
+        Mockito.verify(getCryptoPriceService).execute(anyString());
+        Mockito.verify(cryptoHistoryPriceRepository).save(any());
     }
 
 }

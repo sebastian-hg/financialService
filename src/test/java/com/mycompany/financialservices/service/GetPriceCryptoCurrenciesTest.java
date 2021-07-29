@@ -41,7 +41,7 @@ class GetPriceCryptoCurrenciesTest {
                 .id(1L)
                 .build()
         );
-        cryptoCurrencies= Crypto.builder()
+        cryptoCurrencies = Crypto.builder()
                 .id(1L)
                 .name("btc")
                 .build();
@@ -73,12 +73,12 @@ class GetPriceCryptoCurrenciesTest {
     }
 
     private void whenGetBtcPrice() throws Exception {
-        response = service.getBtcPrice();
+        response = service.execute("BTC");
     }
 
     private void themIsAOk() {
         StepVerifier.create(response)
-                .expectNextMatches(CryptoHistoryPrice-> CryptoHistoryPrice.equals(expected))
+                .expectNextMatches(CryptoHistoryPrice -> CryptoHistoryPrice.equals(expected))
                 .expectComplete()
                 .verify();
         Mockito.verify(repository).findByName("btc");

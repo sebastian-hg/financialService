@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 @ExtendWith(SpringExtension.class)
-class CryptoBtcServiceTest {
+class GetBtcTypeServiceTest {
     @Mock
     private CryptoClient client;
     @InjectMocks

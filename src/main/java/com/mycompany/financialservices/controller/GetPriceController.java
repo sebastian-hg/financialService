@@ -15,13 +15,19 @@ public class GetPriceController {
     private final GetCryptoPriceServiceImpl priceService;
 
     @GetMapping("/bitcoin/")
-    public Mono<CryptoHistoryPrice> viewPrice() throws Exception {return priceService.getBtcPrice();}
+    public Mono<CryptoHistoryPrice> viewPrice() throws Exception {
+        return priceService.execute("BTC");
+    }
 
     @GetMapping("/ethereum/")
-    public Mono<CryptoHistoryPrice> viewPriceEth() throws Exception {return priceService.getEthPrice();}
+    public Mono<CryptoHistoryPrice> viewPriceEth() throws Exception {
+        return priceService.execute("ETH");
+    }
 
     @GetMapping("/dai/")
-    public Mono<CryptoHistoryPrice> viewPriceDai() throws Exception {return priceService.getDaiPrice();}
+    public Mono<CryptoHistoryPrice> viewPriceDai() throws Exception {
+        return priceService.execute("DAI");
+    }
 
 
 }

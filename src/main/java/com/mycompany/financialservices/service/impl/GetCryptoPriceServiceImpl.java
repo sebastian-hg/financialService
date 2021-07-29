@@ -20,42 +20,12 @@ public class GetCryptoPriceServiceImpl implements GetCryptoPriceService {
 
 
     @Override
-    public Mono<CryptoHistoryPrice> getBtcPrice() throws Exception {
-        var crypto = cryptoRepository.findByName("BTC").orElseThrow(Exception::new);
-        return client.execute().map(cryptoResponseDto ->
-        {
-            //log.info("result  of record in th call method:  {}", cryptoResponseDto);
-            return CryptoHistoryPrice.builder()
-                    .crypto(crypto)
-                    .price(cryptoResponseDto.getObject().getBtcArs().getPurchasePrice())
-                    .createdAt(LocalDateTime.now())
-                    .build();
-        });
-    }
-
-    @Override
-    public Mono<CryptoHistoryPrice> getEthPrice() throws Exception {
-        var cryptoEth = cryptoRepository.findByName("ETH").orElseThrow(Exception::new);
-        return client.execute().map(cryptoResponseDto -> {
-            return CryptoHistoryPrice.builder()
-                    .crypto(cryptoEth)
-                    .price(cryptoResponseDto.getObject().getEthArs().getPurchasePrice())
-                    .createdAt(LocalDateTime.now())
-                    .build();
-
-        });
-    }
-
-    @Override
-    public Mono<CryptoHistoryPrice> getDaiPrice() throws Exception {
-        var cryptoDai = cryptoRepository.findByName("DAI").orElseThrow(Exception::new);
-        return client.execute().map(cryptoResponseDto -> {
-            return CryptoHistoryPrice.builder()
-                    .crypto(cryptoDai)
-                    .price(cryptoResponseDto.getObject().getDaiArs().getPurchasePrice())
-                    .createdAt(LocalDateTime.now())
-                    .build();
-
-        });
+    public Mono<CryptoHistoryPrice> execute(String crypto) throws Exception {
+        var cryptoEth = cryptoRepository.findByName(crypto).orElseThrow(Exception::new);
+        return client.execute().map(cryptoResponseDto -> CryptoHistoryPrice.builder()
+                .crypto(cryptoEth)
+                .price(cryptoResponseDto.getObject().getEthArs().getPurchasePrice())
+                .createdAt(LocalDateTime.now())
+                .build());
     }
 }
