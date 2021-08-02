@@ -3,6 +3,7 @@ package com.mycompany.financialservices.service;
 import com.mycompany.financialservices.model.Crypto;
 import com.mycompany.financialservices.model.CryptoHistoryPrice;
 import com.mycompany.financialservices.repository.CryptoHistoryPriceRepository;
+import com.mycompany.financialservices.scheduled.impl.ProcessingCryptoAndSavingToDatabaseImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +27,7 @@ class GetBitcoinPriceAndSaveToDataBaseServiceTest {
     @Mock
     private GetCryptoPriceService getCryptoPriceService;
     @InjectMocks
-    private GetBitcoinPriceAndSaveToDataBaseServiceImpl service;
+    private ProcessingCryptoAndSavingToDatabaseImpl service;
 
 
     @BeforeEach
